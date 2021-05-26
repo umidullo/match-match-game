@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap");
+@import "./sass/constants.scss";
+
+.field {
+  width: 100rem;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  margin: 0 auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.about-wrap {
+  display: flex;
+  width: 90%;
+  flex-direction: column;
+}
