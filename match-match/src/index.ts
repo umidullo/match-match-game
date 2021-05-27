@@ -4,6 +4,7 @@ import { Header } from './components/header/header';
 import { Field } from './components/field/field';
 import { App } from './app';
 import { AboutPage } from './components/about-page/about-page';
+import { ScorePage } from './components/score-page/score-page';
 
 const appElement = document.body;
 const gameBtn = document.querySelector('.game-button');
@@ -11,7 +12,12 @@ const gameBtn = document.querySelector('.game-button');
 if (!appElement) throw Error('app is not defined');
 new Header(appElement);
 const container = new Field(appElement);
+
+/* PAGES */
 const aboutPage = new AboutPage();
+const scorePage = new ScorePage();
+
+container.element.appendChild(aboutPage.element);
 
 /* START GAME */
 gameBtn?.addEventListener('click', () => {
@@ -32,10 +38,6 @@ window.onpopstate = () => {
   currentRoute.component();
 };
 
-/**
- *
- * @type {Array<IRoute>}
- */
 const routing = [
   {
     name: '#/about',
@@ -47,7 +49,8 @@ const routing = [
   {
     name: '#/score',
     component: () => {
-      container.element.innerHTML = 'score';
+      container.element.innerHTML = '';
+      container.element.appendChild(scorePage.element);
     },
   },
   {
@@ -57,14 +60,3 @@ const routing = [
     },
   },
 ];
-
-/**
- *
- * @type {IRoute}
- */
-// const defaultRoute = {
-//   name: '',
-//   component: () => {
-//     container.element.innerHTML = `default`;
-//   },
-// };
