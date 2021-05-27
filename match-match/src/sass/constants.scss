@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 html {
@@ -12,11 +12,9 @@ body {
   min-height: 100vh;
 }
 main {
-  min-height: 86vh;
+  // min-height: 86vh;
   display: flex;
   width: 100rem;
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 5px;
   margin: 0 auto;
 }
 

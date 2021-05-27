@@ -44,7 +44,7 @@ export class BaseComponent {
 
         if (
           attrName.match(
-            /value|id|placeholder|cols|rows|role|aria|src|alt|title|autocorrect|spellcheck/
+            /value|id|name|placeholder|cols|rows|role|aria|src|alt|title|autocorrect|spellcheck/
           )
         ) {
           element.setAttribute(attrName, attrValue);

@@ -5,6 +5,7 @@ import { Field } from './components/field/field';
 import { App } from './app';
 import { AboutPage } from './components/about-page/about-page';
 import { ScorePage } from './components/score-page/score-page';
+import { SettingsPage } from './components/settings-page/settings-page';
 
 const appElement = document.body;
 const gameBtn = document.querySelector('.game-button');
@@ -13,13 +14,15 @@ if (!appElement) throw Error('app is not defined');
 new Header(appElement);
 const container = new Field(appElement);
 
-/* PAGES */
+/* инициализация страниц */
 const aboutPage = new AboutPage();
 const scorePage = new ScorePage();
+const settingsPage = new SettingsPage();
 
+/* надо избавиться от 24 строчки */
 container.element.appendChild(aboutPage.element);
 
-/* START GAME */
+/* кнопка начинающая игру */
 gameBtn?.addEventListener('click', () => {
   new App(appElement).start();
 });
@@ -31,6 +34,7 @@ gameBtn?.addEventListener('click', () => {
 //   new App(appElement).start();
 // };
 
+/* настройка роутера */
 window.onpopstate = () => {
   let currentRouteName = window.location.hash.slice(1);
   let currentRoute =
@@ -56,7 +60,8 @@ const routing = [
   {
     name: '#/settings',
     component: () => {
-      container.element.innerHTML = `settings`;
+      container.element.innerHTML = '';
+      container.element.appendChild(settingsPage.element);
     },
   },
 ];
