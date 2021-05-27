@@ -1,48 +1,44 @@
 import './header.scss';
 import { BaseComponent } from '../base-component';
-import { Wrapper } from './wrapper';
-import { NavField } from './nav';
-import { NavItemAbout } from './nav-item-about';
-import { NavItemScore } from './nav-item-score';
-import { NavItemSettings } from './nav-item-settings';
+import { Navigation } from '../header/navigation';
 import { GameButton } from './game-button';
-import { UserField } from './user-field';
-import { UserButton } from './user-button';
-import { UserAvatar } from './user-avatar';
+import { User } from './user';
 
 export class Header extends BaseComponent {
-  private readonly wrapper: Wrapper;
-  private readonly navField: NavField;
-  private navItemAbout: NavItemAbout;
-  private navItemScore: NavItemScore;
-  private navItemSettings: NavItemSettings;
-  private gameButton: GameButton;
-  private userField: UserField;
-  private userButton: UserButton;
-  private userAvatar: UserAvatar;
+  wrapper: HTMLElement | null;
+  gameButton: GameButton;
+  navigation: Navigation;
+  user: User;
 
   constructor(readonly rootElement: HTMLElement) {
     super('header', ['header']);
 
-    this.wrapper = new Wrapper();
-    this.navField = new NavField();
-    this.navItemAbout = new NavItemAbout();
-    this.navItemScore = new NavItemScore();
-    this.navItemSettings = new NavItemSettings();
+    this.wrapper = null;
+
     this.gameButton = new GameButton();
-    this.userField = new UserField();
-    this.userButton = new UserButton();
-    this.userAvatar = new UserAvatar();
+    this.navigation = new Navigation();
+    this.user = new User();
 
     this.rootElement.appendChild(this.element);
-    this.element.appendChild(this.wrapper.element);
-    this.wrapper.element.appendChild(this.navField.element);
-    this.navField.element.appendChild(this.navItemAbout.element);
-    this.navField.element.appendChild(this.navItemScore.element);
-    this.navField.element.appendChild(this.navItemSettings.element);
-    this.wrapper.element.appendChild(this.gameButton.element);
-    this.wrapper.element.appendChild(this.userField.element);
-    this.userField.element.appendChild(this.userButton.element);
-    this.userField.element.appendChild(this.userAvatar.element);
+
+    this.init();
+  }
+
+  init() {
+    this.wrapper = this.create(
+      'div',
+      'wrapper',
+      `
+      <div class="logo">
+        <span>match</span>
+        <span class="inverted">match</span>
+      </div>
+      `,
+      this.element
+    );
+
+    this.wrapper.appendChild(this.navigation.element);
+    this.wrapper.appendChild(this.gameButton.element);
+    this.wrapper.appendChild(this.user.element);
   }
 }
