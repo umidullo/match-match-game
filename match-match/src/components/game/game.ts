@@ -7,7 +7,9 @@ const FLIP_DELAY = 1000;
 
 export class Game extends BaseComponent {
   private readonly cardsField: CardsField;
+
   private activeCard?: Card;
+
   private isAnimation = false;
 
   constructor() {
@@ -43,7 +45,7 @@ export class Game extends BaseComponent {
       return;
     }
 
-    if (this.activeCard.image != card.image) {
+    if (this.activeCard.image !== card.image) {
       await delay(FLIP_DELAY);
       await Promise.all([this.activeCard.flipToback(), card.flipToback()]);
     }

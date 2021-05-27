@@ -3,19 +3,19 @@ export class BaseComponent {
 
   constructor(
     tag: keyof HTMLElementTagNameMap = 'div',
-    stylesClassName: string[] = []
+    stylesClassName: string[] = [],
   ) {
     this.element = document.createElement(tag);
     this.element.classList.add(...stylesClassName);
   }
 
-  create(
+  create = (
     el: string,
     classNames: string,
     child: any,
     parent: HTMLElement,
     ...dataAttr: any
-  ): HTMLElement {
+  ): HTMLElement => {
     let element: any = null;
 
     try {
@@ -28,7 +28,7 @@ export class BaseComponent {
 
     if (child && Array.isArray(child)) {
       child.forEach(
-        (childElement) => childElement && element.append(childElement)
+        (childElement) => childElement && element.append(childElement),
       );
     } else if (child && typeof child === 'object') {
       element.append(child);
@@ -44,7 +44,7 @@ export class BaseComponent {
 
         if (
           attrName.match(
-            /value|id|name|placeholder|cols|rows|role|aria|src|alt|title|autocorrect|spellcheck/
+            /value|id|name|placeholder|cols|rows|role|aria|src|alt|title|autocorrect|spellcheck/,
           )
         ) {
           element.setAttribute(attrName, attrValue);
@@ -55,5 +55,5 @@ export class BaseComponent {
     }
 
     return element;
-  }
+  };
 }

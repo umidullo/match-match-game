@@ -3,8 +3,11 @@ import { BaseComponent } from '../base-component';
 
 export class Navigation extends BaseComponent {
   about: HTMLElement | null;
+
   settings: HTMLElement | null;
+
   score: HTMLElement | null;
+
   constructor() {
     super('nav', ['nav']);
     this.element.addEventListener('click', this.clickHandler);
@@ -23,7 +26,7 @@ export class Navigation extends BaseComponent {
 
       `<img src="./q.png" alt="icon" />
         <p>about</p>`,
-      this.element
+      this.element,
     );
     this.score = this.create(
       'a',
@@ -31,7 +34,7 @@ export class Navigation extends BaseComponent {
 
       `<img src="./stars.png" alt="icon" />
         <p>score</p>`,
-      this.element
+      this.element,
     );
     this.settings = this.create(
       'a',
@@ -39,7 +42,7 @@ export class Navigation extends BaseComponent {
 
       `<img src="./settings.png" alt="icon" />
         <p>settings</p>`,
-      this.element
+      this.element,
     );
 
     this.about.setAttribute('href', '#/about');

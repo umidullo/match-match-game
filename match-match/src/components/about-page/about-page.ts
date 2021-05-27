@@ -1,9 +1,9 @@
 import './about-page.scss';
-
 import { BaseComponent } from '../base-component';
 
 export class AboutPage extends BaseComponent {
   title: HTMLElement | null;
+
   blockWrap: HTMLElement | null;
 
   constructor() {
@@ -34,10 +34,10 @@ export class AboutPage extends BaseComponent {
                   'p',
                   '',
                   'Register new player in game',
-                  this.element
+                  this.element,
                 ),
               ],
-              this.element
+              this.element,
             ),
             this.create(
               'div',
@@ -45,10 +45,10 @@ export class AboutPage extends BaseComponent {
               `
             <img src="./descr1.png" class="illustration"></img>
             `,
-              this.element
+              this.element,
             ),
           ],
-          this.element
+          this.element,
         ),
         this.create(
           'div',
@@ -63,10 +63,10 @@ export class AboutPage extends BaseComponent {
                   'p',
                   '',
                   'Configure your game settings',
-                  this.element
+                  this.element,
                 ),
               ],
-              this.element
+              this.element,
             ),
             this.create(
               'div',
@@ -74,10 +74,10 @@ export class AboutPage extends BaseComponent {
               `
             <img src="./descr2.png" class="illustration"></img>
             `,
-              this.element
+              this.element,
             ),
           ],
-          this.element
+          this.element,
         ),
         this.create(
           'div',
@@ -92,10 +92,10 @@ export class AboutPage extends BaseComponent {
                   'p',
                   '',
                   'Start you new game! Remember card <br> positions and match it before times up.',
-                  this.element
+                  this.element,
                 ),
               ],
-              this.element
+              this.element,
             ),
             this.create(
               'div',
@@ -103,13 +103,13 @@ export class AboutPage extends BaseComponent {
               `
             <img src="./descr3.png" class="illustration"></img>
             `,
-              this.element
+              this.element,
             ),
           ],
-          this.element
+          this.element,
         ),
       ],
-      this.element
+      this.element,
     );
   }
 }

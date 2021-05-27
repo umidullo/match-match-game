@@ -11,7 +11,7 @@ const appElement = document.body;
 const gameBtn = document.querySelector('.game-button');
 
 if (!appElement) throw Error('app is not defined');
-new Header(appElement);
+const header = new Header(appElement);
 const container = new Field(appElement);
 
 /* инициализация страниц */
@@ -33,14 +33,6 @@ gameBtn?.addEventListener('click', () => {
 //   new Field(appElement);
 //   new App(appElement).start();
 // };
-
-/* настройка роутера */
-window.onpopstate = () => {
-  let currentRouteName = window.location.hash.slice(1);
-  let currentRoute =
-    routing.find((p) => p.name === `#${currentRouteName}`) || routing[0];
-  currentRoute.component();
-};
 
 const routing = [
   {
@@ -65,3 +57,10 @@ const routing = [
     },
   },
 ];
+
+/* настройка роутера */
+window.onpopstate = () => {
+  const currentRouteName = window.location.hash.slice(1);
+  const currentRoute = routing.find((p) => p.name === `#${currentRouteName}`) || routing[0];
+  currentRoute.component();
+};

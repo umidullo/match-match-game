@@ -3,6 +3,7 @@ import { BaseComponent } from '../base-component';
 
 export class SettingsPage extends BaseComponent {
   cardType: HTMLElement | null;
+
   gameType: HTMLElement | null;
 
   constructor() {
@@ -26,7 +27,7 @@ export class SettingsPage extends BaseComponent {
             this.create('h2', '', 'Game cards', this.element),
             this.create('p', '', 'select game cards type', this.element),
           ],
-          this.element
+          this.element,
         ),
         this.create(
           'div',
@@ -46,13 +47,13 @@ export class SettingsPage extends BaseComponent {
                 ]),
               ],
               this.element,
-              ['name', 'animal']
+              ['name', 'animal'],
             ),
           ],
-          this.element
+          this.element,
         ),
       ],
-      this.element
+      this.element,
     );
     this.gameType = this.create(
       'div',
@@ -65,7 +66,7 @@ export class SettingsPage extends BaseComponent {
             this.create('h2', '', 'Difficulty', this.element),
             this.create('p', '', 'select game type', this.element),
           ],
-          this.element
+          this.element,
         ),
         this.create(
           'div',
@@ -89,13 +90,13 @@ export class SettingsPage extends BaseComponent {
                 ]),
               ],
               this.element,
-              ['name', 'difficulty']
+              ['name', 'difficulty'],
             ),
           ],
-          this.element
+          this.element,
         ),
       ],
-      this.element
+      this.element,
     );
   }
 }

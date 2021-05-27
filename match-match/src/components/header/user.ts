@@ -4,6 +4,7 @@ import { BaseComponent } from '../base-component';
 
 export class User extends BaseComponent {
   registerBtn: HTMLElement | null;
+
   avatar: HTMLElement | null;
 
   constructor() {
@@ -20,7 +21,7 @@ export class User extends BaseComponent {
       'button',
       'button register-button',
       'register new player',
-      this.element
+      this.element,
     );
 
     this.avatar = this.create('div', 'avatar', null, this.element);

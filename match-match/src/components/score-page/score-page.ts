@@ -3,11 +3,17 @@ import { BaseComponent } from '../base-component';
 
 export class ScorePage extends BaseComponent {
   title: HTMLElement | null;
+
   playersWrap: HTMLElement | null;
+
   playerItem: HTMLElement | null;
+
   playerAvatar: HTMLElement | null;
+
   playerName: string | null;
+
   playerEmail: string | null;
+
   playerScore: number | null;
 
   constructor() {
@@ -48,7 +54,7 @@ export class ScorePage extends BaseComponent {
       <span>${this.playerScore}</span>
     </div>
       `,
-      this.playersWrap
+      this.playersWrap,
     );
   }
 }
