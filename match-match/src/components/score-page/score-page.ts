@@ -27,8 +27,8 @@ export class ScorePage extends BaseComponent {
 
     this.playerItem = null;
     this.playerName = 'test';
-    this.playerEmail = 'testtt';
-    this.playerScore = 3434;
+    this.playerEmail = 'test';
+    this.playerScore = 1234;
 
     this.init();
   }
@@ -54,7 +54,7 @@ export class ScorePage extends BaseComponent {
       <span>${this.playerScore}</span>
     </div>
       `,
-      this.playersWrap,
+      this.playersWrap
     );
   }
 }

@@ -5,5 +5,6 @@ export class GameButton extends BaseComponent {
   constructor() {
     super('button', ['button', 'game-button']);
     this.element.innerHTML = 'start game';
+    this.element.setAttribute('id', 'game-button');
   }
 }

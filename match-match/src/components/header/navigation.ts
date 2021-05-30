@@ -26,7 +26,7 @@ export class Navigation extends BaseComponent {
 
       `<img src="./q.png" alt="icon" />
         <p>about</p>`,
-      this.element,
+      this.element
     );
     this.score = this.create(
       'a',
@@ -34,7 +34,7 @@ export class Navigation extends BaseComponent {
 
       `<img src="./stars.png" alt="icon" />
         <p>score</p>`,
-      this.element,
+      this.element
     );
     this.settings = this.create(
       'a',
@@ -42,10 +42,10 @@ export class Navigation extends BaseComponent {
 
       `<img src="./settings.png" alt="icon" />
         <p>settings</p>`,
-      this.element,
+      this.element
     );
 
-    this.about.setAttribute('href', '#/about');
+    this.about.setAttribute('href', '#/');
     this.score.setAttribute('href', '#/score');
     this.settings.setAttribute('href', '#/settings');
   }

@@ -2,41 +2,30 @@ import './styles.scss';
 
 import { Header } from './components/header/header';
 import { Field } from './components/field/field';
-import { App } from './app';
+// import { App } from './app';
 import { AboutPage } from './components/about-page/about-page';
 import { ScorePage } from './components/score-page/score-page';
 import { SettingsPage } from './components/settings-page/settings-page';
+import { GamePage } from './components/game-page/game';
 
 const appElement = document.body;
-const gameBtn = document.querySelector('.game-button');
 
 if (!appElement) throw Error('app is not defined');
 const header = new Header(appElement);
 const container = new Field(appElement);
 
+const gameBtn = document.querySelector('.game-button');
+
 /* инициализация страниц */
 const aboutPage = new AboutPage();
 const scorePage = new ScorePage();
 const settingsPage = new SettingsPage();
-
-/* надо избавиться от 24 строчки */
-container.element.appendChild(aboutPage.element);
-
-/* кнопка начинающая игру */
-gameBtn?.addEventListener('click', () => {
-  new App(appElement).start();
-});
-
-// window.onload = () => {
-//   if (!appElement) throw Error('app is not defined');
-//   new Header(appElement);
-//   new Field(appElement);
-//   new App(appElement).start();
-// };
+const gamePage = new GamePage();
+// const game = new App(appElement);
 
 const routing = [
   {
-    name: '#/about',
+    name: '#/',
     component: () => {
       container.element.innerHTML = '';
       container.element.appendChild(aboutPage.element);
@@ -58,9 +47,27 @@ const routing = [
   },
 ];
 
-/* настройка роутера */
-window.onpopstate = () => {
+const router = () => {
   const currentRouteName = window.location.hash.slice(1);
-  const currentRoute = routing.find((p) => p.name === `#${currentRouteName}`) || routing[0];
+  const currentRoute =
+    routing.find((p) => p.name === `#${currentRouteName}`) || routing[0];
   currentRoute.component();
 };
+
+/* настройка роутера */
+window.onpopstate = () => {
+  router();
+};
+
+gameBtn?.addEventListener('click', () => {
+  if (gameBtn.innerHTML === 'start game') {
+    container.element.innerHTML = '';
+    container.element.appendChild(gamePage.element);
+    gamePage.start();
+    gameBtn.innerHTML = 'stop game';
+  } else if ((gameBtn.innerHTML = 'stop game')) {
+    router();
+    gameBtn.innerHTML = 'start game';
+    gamePage.stopGame();
+  }
+});

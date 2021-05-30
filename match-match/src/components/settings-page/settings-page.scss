@@ -10,8 +10,9 @@
 
 .settings__item {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: start;
+  justify-content: flex-start;
+  flex-direction: column;
   width: 100%;
   max-width: 256px;
   margin-bottom: 4rem;
@@ -26,11 +27,18 @@
     color: rgba(0, 0, 0, 0.87);
   }
 
-  p {
+  p,
+  select {
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.25px;
     color: rgba(0, 0, 0, 0.6);
+    border: none;
+    outline: none;
+  }
+
+  select {
+    width: 25.6rem;
   }
 
   form {
