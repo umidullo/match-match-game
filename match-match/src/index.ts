@@ -2,7 +2,6 @@ import './styles.scss';
 
 import { Header } from './components/header/header';
 import { Field } from './components/field/field';
-// import { App } from './app';
 import { AboutPage } from './components/about-page/about-page';
 import { ScorePage } from './components/score-page/score-page';
 import { SettingsPage } from './components/settings-page/settings-page';
@@ -16,12 +15,10 @@ const container = new Field(appElement);
 
 const gameBtn = document.querySelector('.game-button');
 
-/* инициализация страниц */
 const aboutPage = new AboutPage();
 const scorePage = new ScorePage();
 const settingsPage = new SettingsPage();
 const gamePage = new GamePage();
-// const game = new App(appElement);
 
 const routing = [
   {
@@ -49,11 +46,11 @@ const routing = [
 
 const router = () => {
   const currentRouteName = window.location.hash.slice(1);
-  const currentRoute = routing.find((p) => p.name === `#${currentRouteName}`) || routing[0];
+  const currentRoute =
+    routing.find((p) => p.name === `#${currentRouteName}`) || routing[0];
   currentRoute.component();
 };
 
-/* настройка роутера */
 window.onpopstate = () => {
   router();
 };
