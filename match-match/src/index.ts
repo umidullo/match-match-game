@@ -13,7 +13,7 @@ if (!appElement) throw Error('app is not defined');
 const header = new Header(appElement);
 const container = new Field(appElement);
 
-const gameBtn = document.querySelector('.game-button');
+export const gameBtn = document.querySelector('.game-button');
 
 const aboutPage = new AboutPage();
 const scorePage = new ScorePage();
@@ -24,6 +24,9 @@ const routing = [
   {
     name: '#/',
     component: () => {
+      gamePage.stopGame();
+      (gameBtn as HTMLElement).innerHTML = 'start game';
+
       container.element.innerHTML = '';
       container.element.appendChild(aboutPage.element);
     },
@@ -31,6 +34,9 @@ const routing = [
   {
     name: '#/score',
     component: () => {
+      gamePage.stopGame();
+      (gameBtn as HTMLElement).innerHTML = 'start game';
+
       container.element.innerHTML = '';
       container.element.appendChild(scorePage.element);
     },
@@ -38,21 +44,26 @@ const routing = [
   {
     name: '#/settings',
     component: () => {
+      gamePage.stopGame();
+      (gameBtn as HTMLElement).innerHTML = 'start game';
+
       container.element.innerHTML = '';
       container.element.appendChild(settingsPage.element);
     },
   },
 ];
 
-const router = () => {
+export const router = () => {
   const currentRouteName = window.location.hash.slice(1);
-  const currentRoute = routing.find((p) => p.name === `#${currentRouteName}`) || routing[0];
+  const currentRoute =
+    routing.find((p) => p.name === `#${currentRouteName}`) || routing[0];
   currentRoute.component();
 };
 
 window.onpopstate = () => {
   router();
 };
+router();
 
 gameBtn?.addEventListener('click', () => {
   if (gameBtn.innerHTML === 'start game') {

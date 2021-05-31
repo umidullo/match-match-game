@@ -5,15 +5,17 @@ const FLIP_CLASS = 'flipped';
 
 export class Card extends BaseComponent {
   isFlipped = false;
+  classList: any;
 
   constructor(readonly image: string) {
     super('div', ['card-container']);
 
-    const size = localStorage.getItem('difficultyType') === 'easy' ? '168px' : '110px';
+    const size =
+      localStorage.getItem('difficultyType') === 'easy' ? '168px' : '110px';
 
     this.element.innerHTML = `
         <div class="card" style="width: ${size}; height: ${size}">
-          <div class="cover"></div>
+          <div></div>
           <div class="card__front" style="background-image: url('./images/${image}')"></div>
           <div class="card__back"></div>
         </div>
