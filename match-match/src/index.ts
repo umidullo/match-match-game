@@ -49,8 +49,7 @@ const routing = [
 
 const router = () => {
   const currentRouteName = window.location.hash.slice(1);
-  const currentRoute =
-    routing.find((p) => p.name === `#${currentRouteName}`) || routing[0];
+  const currentRoute = routing.find((p) => p.name === `#${currentRouteName}`) || routing[0];
   currentRoute.component();
 };
 
@@ -65,7 +64,7 @@ gameBtn?.addEventListener('click', () => {
     container.element.appendChild(gamePage.element);
     gamePage.start();
     gameBtn.innerHTML = 'stop game';
-  } else if ((gameBtn.innerHTML = 'stop game')) {
+  } else {
     router();
     gameBtn.innerHTML = 'start game';
     gamePage.stopGame();

@@ -10,8 +10,11 @@ const FLIP_DELAY = 1000;
 
 export class GamePage extends BaseComponent {
   timer: Timer;
+
   cardsField: CardsField;
+
   private activeCard?: Card;
+
   private isAnimation = false;
 
   constructor() {
@@ -39,7 +42,7 @@ export class GamePage extends BaseComponent {
       this.cardsField.addCards(cards);
     } else {
       this.cardsField.clear();
-      let slicedCards = images.slice(0, 8);
+      const slicedCards = images.slice(0, 8);
       const cards = slicedCards
         .concat(slicedCards)
         .map((url) => new Card(url))
@@ -86,8 +89,8 @@ export class GamePage extends BaseComponent {
     this.isAnimation = false;
   }
 
-  //check game finished?
-  winGame() {}
+  // check game finished?
+  // winGame() {}
 
   // старт игры
   async start() {

@@ -54,7 +54,7 @@ export class ScorePage extends BaseComponent {
       <span>${this.playerScore}</span>
     </div>
       `,
-      this.playersWrap
+      this.playersWrap,
     );
   }
 }

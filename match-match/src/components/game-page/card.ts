@@ -9,8 +9,7 @@ export class Card extends BaseComponent {
   constructor(readonly image: string) {
     super('div', ['card-container']);
 
-    const size =
-      localStorage.getItem('difficultyType') === 'easy' ? '168px' : '110px';
+    const size = localStorage.getItem('difficultyType') === 'easy' ? '168px' : '110px';
 
     this.element.innerHTML = `
         <div class="card" style="width: ${size}; height: ${size}">

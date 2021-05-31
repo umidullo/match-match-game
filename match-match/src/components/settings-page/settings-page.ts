@@ -37,7 +37,7 @@ export class SettingsPage extends BaseComponent {
                   this.element,
                   ['value', 'dis'],
                   ['selected', ''],
-                  ['disabled', '']
+                  ['disabled', ''],
                 ),
                 this.create('option', '', 'cats', this.element, [
                   'value',
@@ -49,13 +49,13 @@ export class SettingsPage extends BaseComponent {
                 ]),
               ],
               this.element,
-              ['name', 'animal']
+              ['name', 'animal'],
             ),
           ],
-          this.element
+          this.element,
         ),
       ],
-      this.element
+      this.element,
     );
     this.gameType = this.create(
       'div',
@@ -77,7 +77,7 @@ export class SettingsPage extends BaseComponent {
                   this.element,
                   ['value', 'dis'],
                   ['selected', ''],
-                  ['disabled', '']
+                  ['disabled', ''],
                 ),
                 this.create('option', '', '4x4', this.element, [
                   'value',
@@ -89,20 +89,20 @@ export class SettingsPage extends BaseComponent {
                 ]),
               ],
               this.element,
-              ['name', 'difficulty']
+              ['name', 'difficulty'],
             ),
           ],
-          this.element
+          this.element,
         ),
       ],
-      this.element
+      this.element,
     );
   }
 
   selectHandler() {
     const animal = this.element.querySelector('.animal') as HTMLInputElement;
     const difficulty = this.element.querySelector(
-      '.difficulty'
+      '.difficulty',
     ) as HTMLInputElement;
     animal.addEventListener('change', () => {
       if (animal.value === 'cat') {
