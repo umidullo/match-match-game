@@ -55,8 +55,7 @@ const routing = [
 
 export const router = () => {
   const currentRouteName = window.location.hash.slice(1);
-  const currentRoute =
-    routing.find((p) => p.name === `#${currentRouteName}`) || routing[0];
+  const currentRoute = routing.find((p) => p.name === `#${currentRouteName}`) || routing[0];
   currentRoute.component();
 };
 

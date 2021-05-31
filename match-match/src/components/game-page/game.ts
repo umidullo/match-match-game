@@ -5,7 +5,7 @@ import { CardsField } from './card-field';
 import { Card } from './card';
 import { ImageCategoryModel } from '../../models/image-category-model';
 import { delay } from '../../shared/delay';
-import { gameBtn, router } from '../..';
+// import { router } from '../..';
 
 const FLIP_DELAY = 1000;
 
@@ -18,11 +18,17 @@ let rightCounter = 0;
 let wrongCounter = 0;
 let score = 0;
 
+const gameBtn = document.querySelector('.game-button');
+
 export class GamePage extends BaseComponent {
   popup: HTMLElement | null;
+
   timer: Timer;
+
   cardsField: CardsField;
+
   private activeCard?: Card;
+
   private isAnimation = false;
 
   constructor() {
@@ -111,10 +117,10 @@ export class GamePage extends BaseComponent {
           Congratulations! You successfully found all matches on ${minutes}.${seconds} minutes <b>YOUR SCORE ${score}</b>.
           </p>
         <button class="popup-btn">ok</button>`,
-          this.element
+          this.element,
         ),
       ],
-      this.element
+      this.element,
     );
     this.popup?.classList.remove('none');
     this.popupOpen();
@@ -127,9 +133,7 @@ export class GamePage extends BaseComponent {
   popupOpen() {
     const popupBtn = this.popup?.querySelector('.popup-btn');
     (popupBtn as HTMLElement).addEventListener('click', () => {
-      router();
-      (gameBtn as HTMLElement).innerHTML = 'start game';
-      this.stopGame();
+      // this.stopGame();
       this.popup?.classList.add('none');
     });
   }
@@ -167,22 +171,22 @@ export class GamePage extends BaseComponent {
     }
 
     if (this.activeCard.image !== card.image) {
-      //добавляю класс крассного цвета
+      // добавляю класс крассного цвета
       this.wrongType(card);
 
       await delay(FLIP_DELAY);
       await Promise.all([this.activeCard.flipToback(), card.flipToback()]);
 
-      //убираю класс кросного цвета
+      // убираю класс кросного цвета
       this.rightType(card);
       // подсчет неправильных попыток
       wrongCounter++;
     } else {
-      //добавляю класс зеленого цвета
+      // добавляю класс зеленого цвета
       this.activeCard.element.querySelector('.card')?.classList.add('right');
       card.element.querySelector('.card')?.classList.add('right');
 
-      //подсчет правльных попыток
+      // подсчет правльных попыток
       rightCounter++;
       if (localStorage.getItem('difficultyType') === 'easy') {
         if (rightCounter === 8) {
