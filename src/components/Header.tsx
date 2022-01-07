@@ -4,29 +4,42 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { NavLink } from 'react-router-dom';
+import StarsIcon from '@mui/icons-material/Stars';
+import SettingsIcon from '@mui/icons-material/Settings';
+import InfoIcon from '@mui/icons-material/Info';
 
 const ResponsiveAppBar = () => {
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
-        <Toolbar sx={{display: 'flex', justifyContent: 'space-between'}}>
-          <Typography
-            variant="h6"
-            noWrap
-            component="h1"
-            sx={{ mr: 2 }}
-          >
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          <Typography variant="h6" noWrap component="h1" sx={{ mr: 2 }}>
             Match-Match
           </Typography>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '16rem'}}>
-            <NavLink to="/">
-              <Typography sx={{ my: 2, color: 'white', display: 'block' }}>About Game</Typography>
+          <Box
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              width: '16rem',
+            }}
+          >
+            <NavLink to="/" style={{ textDecoration: 'none' }}>
+              <Typography sx={{ my: 2, color: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <InfoIcon/>
+                About Game
+              </Typography>
             </NavLink>
-            <NavLink to="/score">
-              <Typography sx={{ my: 2, color: 'white', display: 'block' }}>Score</Typography>
+            <NavLink to="/score" style={{ textDecoration: 'none' }}>
+              <Typography sx={{ my: 2, color: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <StarsIcon/>
+                Score
+              </Typography>
             </NavLink>
-            <NavLink to="/settings">
-              <Typography sx={{ my: 2, color: 'white', display: 'block' }}>Settings</Typography>
+            <NavLink to="/settings" style={{ textDecoration: 'none' }}>
+              <Typography sx={{ my: 2, color: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <SettingsIcon/>
+                Settings
+              </Typography>
             </NavLink>
           </Box>
         </Toolbar>
